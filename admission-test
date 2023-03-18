@@ -1,0 +1,111 @@
+Eason Lin AppWorks Task_230318
+Question 1:
+You are required to complete the following two functions.
+1. find_max: find the max value of an array of numbers.
+2. find_position: find the first position of the target number inside an array of numbers. The position
+should be counted starting from 0, if you can't find the target, please return -1.
+Reminder: you cannot use those built-in functions like max() and index() to complete this
+assignment, please implement it by yourself.
+
+Ans1: 
+def find_max(numbers):
+    max_num = numbers[0]
+    for num in numbers:
+        if num > max_num:
+            max_num = num
+    return max_num
+
+def find_position(numbers, target):
+    for i in range(len(numbers)):
+        if numbers[i] == target:
+            return i
+    return -1
+
+print(find_max([1, 2, 4, 5])) # should print 5
+print(find_max([5, 2, 7, 1, 6])) # should print 7
+print(find_position([5, 2, 7, 1, 6], 5)) # should print 0
+print(find_position([5, 2, 7, 1, 6], 7)) # should print 2
+print(find_position([5, 2, 7, 7, 7, 1, 6], 7)) # should print 2 (the first one)
+print(find_position([5, 2, 7, 1, 6], 8)) # should print -1
+
+================================================================================
+
+Question 2:
+Complete the following functions by Python
+1. count: return an object which shows the count of each character.
+2. group_by_key: return an object which shows the summed up value of each key.
+Note:
+1. The input format is different for these two functions.
+2. In the second function, the input may have the same key but different
+values, the output should have each key only once. 
+
+code here: 
+def count(input):
+# your code here
+input1 = ['a', 'b', 'c', 'a', 'c', 'a', 'x']
+print(count(input1)) # should print {'a': 3, 'b': 1, 'c': 2, 'x': 1}
+def group_by_key(input):
+# your code here
+input2 = [
+{'key': 'a', 'value': 3},
+{'key': 'b', 'value': 1},
+{'key': 'c', 'value': 2},
+{'key': 'a', 'value': 3},
+{'key': 'c', 'value': 5}
+]
+print(group_by_key(input2)) # should print {‘a’: 6, ‘b’: 1, ‘c’: 7}
+
+Please write in English language.
+
+Ans2: 
+def count(input_list):
+    count_dict = {}
+    for item in input_list:
+        if item in count_dict:
+            count_dict[item] += 1
+        else:
+            count_dict[item] = 1
+    return count_dict
+
+def group_by_key(input_list):
+    sum_dict = {}
+    for item in input_list:
+        key = item['key']
+        value = item['value']
+        if key in sum_dict:
+            sum_dict[key] += value
+        else:
+            sum_dict[key] = value
+    return sum_dict
+
+input1 = ['a', 'b', 'c', 'a', 'c', 'a', 'x']
+input2 = [
+    {'key': 'a', 'value': 3},
+    {'key': 'b', 'value': 1},
+    {'key': 'c', 'value': 2},
+    {'key': 'a', 'value': 3},
+    {'key': 'c', 'value': 5}
+]
+
+print(count(input1)) # should print {'a': 3, 'b': 1, 'c': 2, 'x': 1}
+print(group_by_key(input2)) # should print {'a': 6, 'b': 1, 'c': 7}
+
+
+================================================================================
+Question3. 
+1. What is Git and why is it used?
+2. What is the difference between List, Dictionary, Tuple and Set in Python?
+
+Ans3: 
+
+1. Git is a version control system used to manage code and track changes over time. It allows developers to work on the same codebase, collaborate on projects, and keep track of different versions of code. It is widely used in software development and helps teams to maintain code integrity and manage project workflow effectively.
+
+2. List, dictionary, tuple, and set are four different data structures in Python.
+
+A list is a collection of ordered elements that can be changed, added or removed. It is denoted by square brackets [] and supports indexing and slicing.
+
+A dictionary is a collection of key-value pairs, where each key is associated with a value. It is denoted by curly braces {} and supports searching and indexing by key.
+
+A tuple is a collection of ordered elements that cannot be changed once created. It is denoted by parentheses () and supports indexing and slicing.
+
+A set is a collection of unique unordered elements, where each element appears only once. It is denoted by curly braces {} and supports set operations like union, intersection, and difference.
